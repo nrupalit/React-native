@@ -89,7 +89,7 @@ export default class MainPage extends Component{
                     >
                         <Icon name="align-left" size='lg' color="white" style ={{ top:screenHeight/40 , marginLeft: screenWidth/10}} onPress={() => this.drawer && this.drawer.openDrawer()} />
                         <Text style={{color:'white' , fontSize:25 , marginLeft: screenWidth/10 , top:screenHeight/30 }} >Welcome to</Text>
-                        <Text style={{color:'white' , fontSize:35 , marginLeft: screenWidth/10 , top:screenHeight/30 , fontWeight: 'bold',}}>Career E-Prophet</Text>
+                        <Text style={{color:'white' , fontSize:35 , marginLeft: screenWidth/10 , top:screenHeight/30 , fontWeight: 'bold'}}>Career E-Prophet</Text>
                         <Text style={{color:'white' , fontSize:15 , marginLeft: screenWidth/10 , top:screenHeight/30}}>Prognostication of your Career</Text>
                         <ScrollView style = {styles.mainGrid}>
                             <View style={styles.bottomGridContainer}>
