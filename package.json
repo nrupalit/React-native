@@ -1,0 +1,31 @@
+{
+  "name": "NativeApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@ant-design/icons-react-native": "1.0.2",
+    "@ant-design/react-native": "3.1.5",
+    "axios": "0.18.0",
+    "react": "16.8.3",
+    "react-native": "0.59.1",
+    "react-native-gesture-handler": "1.1.0",
+    "react-native-simple-toast": "0.0.8",
+    "react-navigation": "3.5.1",
+    "react-navigation-fluid-transitions": "0.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.4.0",
+    "@babel/runtime": "7.4.0",
+    "babel-jest": "24.5.0",
+    "jest": "24.5.0",
+    "metro-react-native-babel-preset": "0.53.1",
+    "react-test-renderer": "16.8.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
