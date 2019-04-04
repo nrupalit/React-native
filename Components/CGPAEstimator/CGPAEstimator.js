@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, Button, Dimensions, Image, BackHandler,ImageBackground, StyleSheet, ScrollView, TextInput, TouchableOpacity, Picker } from "react-native";
+import { View, Text, Button, Dimensions, Alert, BackHandler, ImageBackground, StyleSheet, ScrollView, TextInput, TouchableOpacity, Picker } from "react-native";
 import axios_config from "../axios.config";
 import Toast from "react-native-simple-toast";
 import { Icon } from '@ant-design/react-native';
@@ -15,19 +15,45 @@ export default class CGPAEstimator extends Component {
             student_type: "regular",
             current_sem: "5",
             current_cgpa: 5,
-            target_cgpa: 8
+            target_cgpa: 8,
+            subject_preference: 'Theoretical',
+            semester_subject_with_types: {
+                "3": {
+                    "theoretical": ["Database Management System", "Data Structures & Algorithms"],
+                    "analytical": ["Applied Mathematics 3", "Analog & Digital Circuits", "Object Oriented Programming", "Principal of Analog & Digital Communication"]
+                },
+                "4": {
+                    "theoretical": ["Computer Networks", "Computer Organization & Architecture", "Web Programming"],
+                    "analytical": ["Applied Mathematics 4", "Automata Theory", "Information Theory & Source Coding"]
+                },
+                "5": {
+                    "theoretical": ["Operating Systems", "Microcontroller and Embedded Systems", "Advance Database Management Systems", "Open Source Technologies"],
+                    "analytical": ["Computer Graphics and Virtual Reality"]
+                },
+                "6": {
+                    "theoretical": ["Distributed Systems", "Advance Internet Programming", "Software Engineering", "System and Web Security"],
+                    "analytical": ["Data Mining and Business Intelligence"]
+                },
+                "7": {
+                    "theoretical": ["E-Commerce", "Cloud Computing", "Wireless Technology"],
+                    "analytical": ["Image Processing", "Intelligent Systems"]
+                },
+                "8": {
+                    "theoretical": ["Software Testing and Quality Assurance", "Storage Network and Retrieval Management"],
+                    "analytical": ["Computer Simulation and Modelling", "Big Data Analytics"]
+                }
+            }
         }
     }
     componentWillMount() {
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
     }
-    
-    handleBackButtonClick=()=> {
+
+    handleBackButtonClick = () => {
         this.props.navigation.navigate('Home');
         return true;
     }
     showCGPA = () => {
-        console.log(this.state);
 
         axios_config.post('/cgpa_estimator', {
             student_type: this.state.student_type,
@@ -35,8 +61,13 @@ export default class CGPAEstimator extends Component {
             current_cgpa: this.state.current_cgpa,
             target_cgpa: this.state.target_cgpa
         }).then((response) => {
-            Toast.show(response.data['required_cgpa'], Toast.LONG);
-            console.log(response.data);
+            var filtered_subjects = this.extractSubjects();
+            let result = filtered_subjects.map(a=>a)
+            Alert.alert("Your calculated score",
+                `You need ${response.data['required_cgpa']} GPA continously for ${response.data['number_of_semesters']} semesters.
+Please focus on the following subjects :
+${result}`)
+console.log(result);
 
         }).catch((err) => {
             console.log(err);
@@ -103,27 +134,49 @@ export default class CGPAEstimator extends Component {
             <Text style={styles.loginText}>Calculate</Text>
         </TouchableOpacity>;
     }
+    renderSubjectPreference = () => {
+        return <View>
+            <Text style={styles.loginText}>Select your Subject Preference :</Text>
+            <Picker selectedValue={this.state.subject_preference} onValueChange={(itemValue, itemIndex) => this.setState({ subject_preference: itemValue })}>
+                <Picker.Item label="Theoretical" value="Theoretical" />
+                <Picker.Item label="Analytical" value="Analytical" />
+            </Picker>
+        </View>;
+    }
+    extractSubjects() {
+        var loaded_subjects = this.state.semester_subject_with_types[`${(parseInt(this.state.current_sem, 10) + 1)}`];
+        var filtered_subjects = null;
+        if (this.state.subject_preference == 'Theoretical') {
+            filtered_subjects = loaded_subjects['theoretical'];
+        }
+        else {
+            filtered_subjects = loaded_subjects['analytical'];
+        }
+        return filtered_subjects;
+    }
+
     render() {
         return (
             <ScrollView style={{ backgroundColor: '#a5a7aa' }}>
                 <ImageBackground style={{ flex: 1, width: screenWidth, height: screenHeight }}
-                source={require('../Images/image.jpg')}>
-                <Icon style={[styles.icon]} name="arrow-left" size='lg' color="white" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 }} />
-                <Icon style={[styles.icon]} name="home" size='lg' color="white" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 , top: -70, left: 340 }} />
-            
+                    source={require('../Images/image.jpg')}>
+                    <Icon style={[styles.icon]} name="arrow-left" size='lg' color="white" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 }} />
+                    <Icon style={[styles.icon]} name="home" size='lg' color="white" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20, top: -70, left: 340 }} />
+
                     <Text style={{
-                                textAlign: 'center',
-                                color: 'white',
-                                fontWeight: 'bold',
-                                fontSize: 20,
-                                bottom:110,
-                            }}>CGPA Estimator</Text>
-                    <View style={{ justifyContent: 'center', alignItems: 'center' , padding:30 }}>
-                        <View style={styles.box} style={{padding:20 , backgroundColor:'white' , borderRadius:5}}>
+                        textAlign: 'center',
+                        color: 'white',
+                        fontWeight: 'bold',
+                        fontSize: 20,
+                        bottom: 110,
+                    }}>CGPA Estimator</Text>
+                    <View style={{ justifyContent: 'center', alignItems: 'center', padding: 30 }}>
+                        <View style={styles.box} style={{ padding: 20, backgroundColor: 'white', borderRadius: 5 }}>
                             {this.renderStudentCategory()}
                             {this.renderSemesterSelection()}
                             {this.renderCurrentCGPAInput()}
                             {this.renderTargetCGPAInput()}
+                            {this.renderSubjectPreference()}
                             <View style={{ padding: 10 }}></View>
                             {this.renderCaculateButton()}
                         </View>
