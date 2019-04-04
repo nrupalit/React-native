@@ -134,7 +134,7 @@ ${result}`)
     }
     renderSubjectPreference = () => {
         return <View>
-            <Text style={styles.loginText}>Select your Subject Preference :</Text>
+            <Text>Select your Subject Preference :</Text>
             <Picker selectedValue={this.state.subject_preference} onValueChange={(itemValue, itemIndex) => this.setState({ subject_preference: itemValue })}>
                 <Picker.Item label="Theoretical" value="Theoretical" />
                 <Picker.Item label="Analytical" value="Analytical" />

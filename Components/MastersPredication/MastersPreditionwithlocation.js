@@ -72,7 +72,7 @@ export default class MastersPredictionwithlocation extends Component {
                                     onChangeText={(marks) => this.setState({ marks })}
                                 />
                             </View>
-
+                            <Text>Select location :</Text>
                             <Picker
                                 selectedValue={this.state.location}
                                 style={styles.liststyle}

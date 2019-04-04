@@ -132,7 +132,7 @@ export default class PlacementPredictor extends Component {
 
                         </View>
                         <View style={{ flexDirection: 'column' , padding:10 }}>
-                            <Text style={{ marginTop: 5, color:'black' }}>Select </Text>
+                            <Text style={{ marginTop: 5, color:'black' }}>I'm profecient in / I'm certified in :</Text>
 
 
                             <View style={{ flexDirection: 'row' , padding:10 }}>
