@@ -2,6 +2,7 @@ import React , { Component } from "react";
 import { View , Text , Dimensions , ImageBackground , StyleSheet , ScrollView , TouchableOpacity , Image , FlatList } from "react-native";
 import { Transition } from "react-navigation-fluid-transitions";
 import { Button, Drawer, List , Icon } from '@ant-design/react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
 
 
 let screenWidth = Dimensions.get('window').width;
@@ -43,7 +44,7 @@ export default class MainPage extends Component{
                             bottom: 100,
                             color: 'white',
                             fontWeight: 'bold',
-                            fontSize: 20,
+                            fontSize: hp('3%'),
                         }}>{item['key']}</Text>
                         <Text style={{
                             marginLeft: 200,
@@ -51,7 +52,7 @@ export default class MainPage extends Component{
                             position: 'absolute',
                             bottom: 80,
                             color: 'white',
-                            fontSize: 15,
+                            fontSize: hp('2%'),
                         }}>{item['value']}</Text>
                     </View> 
                  </Transition>
@@ -77,7 +78,7 @@ export default class MainPage extends Component{
             </ScrollView>
           );
         return(
-            <ImageBackground style= {{flex:1 , width: screenWidth, height: screenHeight , opacity: 1}}
+            <ImageBackground style= {{flex:1 , width: 420, height: 750 , opacity: 1}}
                     source={require('./Images/g11.jpg')}>
                     <Drawer
                         sidebar={sidebar}
@@ -88,9 +89,9 @@ export default class MainPage extends Component{
                         drawerBackgroundColor="white"
                     >
                         <Icon name="align-left" size='lg' color="white" style ={{ top:screenHeight/40 , marginLeft: screenWidth/10}} onPress={() => this.drawer && this.drawer.openDrawer()} />
-                        <Text style={{color:'white' , fontSize:25 , marginLeft: screenWidth/10 , top:screenHeight/30 }} >Welcome to</Text>
-                        <Text style={{color:'white' , fontSize:35 , marginLeft: screenWidth/10 , top:screenHeight/30 , fontWeight: 'bold'}}>Career E-Prophet</Text>
-                        <Text style={{color:'white' , fontSize:15 , marginLeft: screenWidth/10 , top:screenHeight/30}}>Prognostication of your Career</Text>
+                        <Text style={{color:'white' , fontSize:hp('4%') , marginLeft: screenWidth/10 , top:screenHeight/30 }} >Welcome to</Text>
+                        <Text style={{color:'white' , fontSize:hp('5%') , marginLeft: screenWidth/10 , top:screenHeight/30 , fontWeight: 'bold'}}>Career E-Prophet</Text>
+                        <Text style={{color:'white' , fontSize:hp('2%') , marginLeft: screenWidth/10 , top:screenHeight/30}}>Prognostication of your Career</Text>
                         <ScrollView style = {styles.mainGrid}>
                             <View style={styles.bottomGridContainer}>
                                 <FlatList
@@ -102,7 +103,7 @@ export default class MainPage extends Component{
                                 />
                             </View>
                         </ScrollView>
-                        <Text style={{color:'#112F5E' , fontSize:25 , marginLeft: screenWidth/15 , bottom:screenHeight/1.8}}>Choose the best option for you</Text>
+                        <Text style={{color:'#112F5E' , fontSize:hp('4%') , marginLeft: screenWidth/15 , bottom:screenHeight/1.8}}>Choose the best option for you</Text>
                     </Drawer>
             </ImageBackground>
         );
@@ -112,15 +113,15 @@ export default class MainPage extends Component{
 const styles = StyleSheet.create({
     mainGrid:{
         flex:1,
-        top:200,
+        top:hp('30%'),
     },
     bottomGridItemContainer: {
         opacity:1,
-        marginLeft: 20,
-        marginRight: 5,
-        marginTop: 240,
-        marginBottom: 10,
-        bottom:220,
+        marginLeft: hp('3%'),
+        marginRight: hp('1%'),
+        marginTop: hp('30%'),
+        marginBottom: hp('2%'),
+        bottom:hp('30%'),
         width: screenWidth * 300 / 375,
         height: screenHeight / 2 - 70,
         backgroundColor: '#2B285F',

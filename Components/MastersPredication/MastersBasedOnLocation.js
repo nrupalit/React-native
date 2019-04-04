@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text , ImageBackground } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { Card, WingBlank } from '@ant-design/react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 export default class MastersBasedOnLocation extends Component {
     state = {
         data: JSON.parse(this.props.screenProps.colleges_based_on_location)
@@ -16,10 +18,12 @@ export default class MastersBasedOnLocation extends Component {
                 <View style={{ paddingTop: 10 }}>
                     <WingBlank size="lg">
                         <Card>
-                            <Card.Header
-                                title={dataElement["Institute Name"]}
-                                thumbStyle={{ width: 30, height: 30 }}
-                            />
+                            <ImageBackground source = {{uri:dataElement.Image}} style ={{width: wp('92%') , height: hp('30%')}}>
+                                <Card.Header
+                                    title={<Text style ={{color:'white' , fontSize: hp('3%') ,top: hp('20%')}}>{dataElement["Institute Name"]}</Text>}
+                                    thumbStyle={{width: wp('92%') , height: hp('50%') }}
+                                />
+                            </ImageBackground>
                             <Card.Body>
                                 <View style={{ height: undefined }}>
                                 <Text style={{ marginLeft: 16 }}>{dataElement['Description']}</Text>
@@ -51,6 +55,8 @@ export default class MastersBasedOnLocation extends Component {
                 <ScrollView>
                     {this.renderCards()}
                     <View style={{padding:20}}></View>
+
+
                 </ScrollView>
             </View>
 

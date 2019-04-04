@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text , ImageBackground } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { Card, WingBlank } from '@ant-design/react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 export default class MasterBasedOnMarks extends Component {
@@ -18,10 +19,12 @@ export default class MasterBasedOnMarks extends Component {
                 <View style={{ paddingTop: 10 }}>
                     <WingBlank size="lg">
                         <Card>
-                            <Card.Header
-                                title={dataElement["Institute Name"]}
-                                thumbStyle={{ width: undefined, height: undefined }}
-                            />
+                            <ImageBackground source = {{uri:dataElement.Image}} style ={{width: wp('92%') , height: hp('30%')}}>
+                                <Card.Header
+                                    title={<Text style ={{color:'white' , fontSize: hp('3%') ,top: hp('20%')}}>{dataElement["Institute Name"]}</Text>}
+                                    thumbStyle={{width: wp('92%') , height: hp('50%') }}
+                                />
+                            </ImageBackground>
                             <Card.Body>
                                 <View style={{ height: undefined }}>
                                     <Text style={{ marginLeft: 16 , padding:5 }}>{dataElement['Description']}</Text>
