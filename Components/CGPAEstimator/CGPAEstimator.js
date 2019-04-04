@@ -67,8 +67,6 @@ export default class CGPAEstimator extends Component {
                 `You need ${response.data['required_cgpa']} GPA continously for ${response.data['number_of_semesters']} semesters.
 Please focus on the following subjects :
 ${result}`)
-console.log(result);
-
         }).catch((err) => {
             console.log(err);
 
