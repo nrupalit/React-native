@@ -20,7 +20,7 @@ export default class PlacementCompanyList extends Component {
                                 thumbStyle={{ width: 30, height: 30 }}
                             />
                             <Card.Body>
-                                <View style={{ height: 42 }}>
+                                <View style={{ height: undefined }}>
                                     <Text style={{ marginLeft: 16 }}>{dataElement.Position}</Text>
                                 </View>
                             </Card.Body>
@@ -47,6 +47,7 @@ export default class PlacementCompanyList extends Component {
                 }}>Company List</Text>
                 <ScrollView>
                     {this.renderCards()}
+                    <View style={{padding:20}}></View>
                 </ScrollView>
             </View>
         );

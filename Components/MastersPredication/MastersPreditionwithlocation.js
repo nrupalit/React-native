@@ -40,60 +40,61 @@ export default class MastersPredictionwithlocation extends Component {
     render() {
         return (
             <ScrollView style={{ backgroundColor: '#a5a7aa' }}>
-                <ImageBackground style={{ flex: 1, width: screenWidth, height: screenHeight / 3 }}
-                    source={require('../Images/photo.jpg')}>
-                    <Icon style={[styles.icon]} name="arrow-left" size='lg' color="grey" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 }} />
-                    <Icon style={[styles.icon]} name="home" size='lg' color="grey" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20, top: -70, left: 340 }} />
+                <ImageBackground style={{ flex: 1, width: screenWidth, height: screenHeight}}
+                    source={require('../Images/image.jpg')}>
+                    <Icon style={[styles.icon]} name="arrow-left" size='lg' color="white" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 }} />
+                    <Icon style={[styles.icon]} name="home" size='lg' color="white" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20, top: -70, left: 340 }} />
                     <Text style={{
                         textAlign: 'center',
                         color: 'white',
                         fontWeight: 'bold',
                         fontSize: 20,
+                        bottom:110,
                     }}>Masters Prediction</Text>
-                </ImageBackground>
-                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <View style={styles.box}>
-                        <View style={styles.inputContainer}>
-                            <TextInput style={styles.inputs}
-                                placeholder="CGPA"
-                                underlineColorAndroid="transparent"
-                                keyboardType='numeric'
-                                maxLength={4}
-                                onChangeText={(text) => this.setState({ text })}
-                            />
-                        </View>
+                    <View style={{ justifyContent: 'center', alignItems: 'center' , padding:30 }}>
+                        <View style={styles.box} style = {{padding: 20 , backgroundColor: 'white' , borderRadius:5}}>
+                            <View style={styles.inputContainer}>
+                                <TextInput style={styles.inputs}
+                                    placeholder="CGPA"
+                                    underlineColorAndroid="transparent"
+                                    keyboardType='numeric'
+                                    maxLength={4}
+                                    onChangeText={(text) => this.setState({ text })}
+                                />
+                            </View>
 
-                        <View style={styles.inputContainer}>
-                            <TextInput style={styles.inputs}
-                                placeholder="GATE score"
-                                underlineColorAndroid="transparent"
-                                keyboardType='numeric'
-                                maxLength={2}
-                                onChangeText={(marks) => this.setState({ marks })}
-                            />
-                        </View>
+                            <View style={styles.inputContainer}>
+                                <TextInput style={styles.inputs}
+                                    placeholder="GATE score"
+                                    underlineColorAndroid="transparent"
+                                    keyboardType='numeric'
+                                    maxLength={2}
+                                    onChangeText={(marks) => this.setState({ marks })}
+                                />
+                            </View>
 
-                        <Picker
-                            selectedValue={this.state.location}
-                            style={styles.liststyle}
-                            onValueChange={(itemValue) =>
-                                this.setState({ location: itemValue })
-                            }>
-                            <Picker.Item label="Borivali" value={'Borivali'} />
-                            <Picker.Item label="Andheri" value={"Andheri"} />
-                            <Picker.Item label="Dadar" value={"Dadar"} />
-                            <Picker.Item label="Vashi" value={"Vashi"} />
-                            <Picker.Item label="Bandra" value={"Bandra"} />
-                            <Picker.Item label="Virar" value={"Virar"} />
-                            <Picker.Item label="Kurla" value={"Kurla"} />
-                        </Picker>
-                        <View style={{ padding: 10 }}></View>
-                        <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]}
-                            onPress={this.predict}>
-                            <Text style={styles.loginText}>Submit</Text>
-                        </TouchableOpacity>
+                            <Picker
+                                selectedValue={this.state.location}
+                                style={styles.liststyle}
+                                onValueChange={(itemValue) =>
+                                    this.setState({ location: itemValue })
+                                }>
+                                <Picker.Item label="Borivali" value={'Borivali'} />
+                                <Picker.Item label="Andheri" value={"Andheri"} />
+                                <Picker.Item label="Dadar" value={"Dadar"} />
+                                <Picker.Item label="Vashi" value={"Vashi"} />
+                                <Picker.Item label="Bandra" value={"Bandra"} />
+                                <Picker.Item label="Virar" value={"Virar"} />
+                                <Picker.Item label="Kurla" value={"Kurla"} />
+                            </Picker>
+                            <View style={{ padding: 10 }}></View>
+                            <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]}
+                                onPress={this.predict}>
+                                <Text style={styles.loginText}>Submit</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
-                </View>
+                </ImageBackground>
             </ScrollView>
         );
     }
@@ -120,7 +121,8 @@ const styles = StyleSheet.create({
     inputs: {
         height: 45,
         marginLeft: 16,
-        borderBottomColor: '#FFFFFF',
+        borderBottomColor: '#290345',
+        borderBottomWidth: 1,
         flex: 1,
     },
     liststyle: {

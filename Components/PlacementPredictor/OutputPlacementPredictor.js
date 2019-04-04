@@ -12,15 +12,15 @@ export default class OutputPlacementPredictor extends Component{
     }
     
     handleBackButtonClick=()=> {
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('PlacementPredictor');
         return true;
     }
     render(){
         return(
             <ImageBackground style= {{flex:1 , width: screenWidth, height: screenHeight , width: screenWidth}}
                         source={require('../Images/image.jpg')}>
-                    <Icon name="arrow-left" size='lg' color="grey" onPress={() => this.props.navigation.navigate('PlacementPredictor')} style={{ padding: 20 }} />
-                    <Icon name="home" size='lg' color="grey" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 , top: -70, left: 340 }} />
+                    <Icon name="arrow-left" size='lg' color="white" onPress={() => this.props.navigation.navigate('PlacementPredictor')} style={{ padding: 10 }} />
+                    <Icon name="home" size='lg' color="white" onPress={() => this.props.navigation.navigate('Home')} style={{ paddingLeft: 380 , bottom:40 }} />
                 <PlacementTabNavigator data={this.props.navigation.state.params.data}/>
             </ImageBackground>
 

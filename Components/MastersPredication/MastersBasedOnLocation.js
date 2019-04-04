@@ -21,7 +21,7 @@ export default class MastersBasedOnLocation extends Component {
                                 thumbStyle={{ width: 30, height: 30 }}
                             />
                             <Card.Body>
-                                <View style={{ height: 42 }}>
+                                <View style={{ height: undefined }}>
                                 <Text style={{ marginLeft: 16 }}>{dataElement['Description']}</Text>
                                     <Text style={{ marginLeft: 16 }}>Expected GATE Scrore :{dataElement['CS-CAP1']}</Text>
                                     <Text style={{ marginLeft: 16 }}>Institute Code :{dataElement['Institute Code']}</Text>
@@ -50,6 +50,7 @@ export default class MastersBasedOnLocation extends Component {
                 }}>College Based on Your Location</Text>
                 <ScrollView>
                     {this.renderCards()}
+                    <View style={{padding:20}}></View>
                 </ScrollView>
             </View>
 

@@ -12,15 +12,15 @@ export default class OutputMastersPredictionwithlocation extends Component{
     }
     
     handleBackButtonClick=()=> {
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('MastersPreditionwithlocation');
         return true;
     }
     render(){
         return(
             <ImageBackground style= {{flex:1 , width: screenWidth, height: screenHeight , opacity: 1}}
             source={require('../Images/image.jpg')}>
-                <Icon name="arrow-left" size='lg' color="grey" onPress={() => this.props.navigation.navigate('MastersPreditionwithlocation')} style={{ padding: 20 }} />
-                <Icon name="home" size='lg' color="grey" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 , top: -70, left: 340 }} />
+                <Icon name="arrow-left" size='lg' color="white" onPress={() => this.props.navigation.navigate('MastersPreditionwithlocation')} style={{ paddingLeft: 10 }} />
+                <Icon name="home" size='lg' color="white" onPress={() => this.props.navigation.navigate('Home')} style={{ paddingLeft: 380 , bottom:25}} />
                <TabNavigatorForMaster data={this.props.navigation.state.params.data}/>
             </ImageBackground>
             

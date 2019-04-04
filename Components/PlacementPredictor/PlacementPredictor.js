@@ -71,8 +71,8 @@ export default class PlacementPredictor extends Component {
             <ScrollView>
                 <ImageBackground style= {{flex:1 , width: screenWidth, height: screenHeight , width: screenWidth}}
                         source={require('../Images/image.jpg')}>
-                    <Icon style={[styles.icon]} name="arrow-left" size='lg' color="grey" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 }} />
-                    <Icon style={[styles.icon]} name="home" size='lg' color="grey" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 , top: -70, left: 340 }} />
+                    <Icon style={[styles.icon]} name="arrow-left" size='lg' color="white" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 }} />
+                    <Icon style={[styles.icon]} name="home" size='lg' color="white" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 , top: -70, left: 340 }} />
                     <Text style={{
                             textAlign: 'center',
                             color: 'white',
@@ -81,7 +81,7 @@ export default class PlacementPredictor extends Component {
                             bottom:60
                         }}>Placement Predictor</Text>
                     <View style = {{paddingLeft:20 , paddingRight: 20}}>
-                        <View style={{padding: 20 , backgroundColor: '#a5a7aa'}}>
+                        <View style={{padding: 20 , backgroundColor: 'white' , borderRadius: 5}}>
                         <View style={styles.inputContainer}>
                         <TextInput
                             style={styles.inputs}
@@ -222,7 +222,8 @@ const styles = StyleSheet.create({
     inputs:{
         height:45,
         marginLeft:16,
-        borderBottomColor: '#FFFFFF',
+        borderBottomColor: '#290345',
+        borderBottomWidth: 1,
         flex:1,
     },
     liststyle:{

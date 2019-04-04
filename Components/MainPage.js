@@ -74,13 +74,6 @@ export default class MainPage extends Component{
                     <Icon style={[styles.icon]} name="percentage" size='lg' color="grey" />
                     <Text style={[styles.drawer]} onPress={() => this.props.navigation.navigate('CGPAEstimator')}>CGPA Estimator</Text>
                 </List>
-              <Button
-                        type="primary"
-                        size="small"
-                        onPress={() => this.drawer.closeDrawer()}
-                      >
-                        Exit
-                      </Button>
             </ScrollView>
           );
         return(
@@ -94,7 +87,7 @@ export default class MainPage extends Component{
                         onOpenChange={this.onOpenChange}
                         drawerBackgroundColor="white"
                     >
-                        <Icon name="align-left" size='lg' color="grey" style ={{ top:screenHeight/40 , marginLeft: screenWidth/10}} onPress={() => this.drawer && this.drawer.openDrawer()} />
+                        <Icon name="align-left" size='lg' color="white" style ={{ top:screenHeight/40 , marginLeft: screenWidth/10}} onPress={() => this.drawer && this.drawer.openDrawer()} />
                         <Text style={{color:'white' , fontSize:25 , marginLeft: screenWidth/10 , top:screenHeight/30 }} >Welcome to</Text>
                         <Text style={{color:'white' , fontSize:35 , marginLeft: screenWidth/10 , top:screenHeight/30 , fontWeight: 'bold',}}>Career E-Prophet</Text>
                         <Text style={{color:'white' , fontSize:15 , marginLeft: screenWidth/10 , top:screenHeight/30}}>Prognostication of your Career</Text>

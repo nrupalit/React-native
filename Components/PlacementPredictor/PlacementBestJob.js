@@ -24,7 +24,7 @@ export default class PlacementBestJob extends Component {
                             thumbStyle={{ width: 30, height: 30 }}
                             />
                             <Card.Body>
-                            <View style={{ height: 42 }}>
+                            <View style={{ height: undefined }}>
                                 <Text style={{ marginLeft: 16 }}>{this.props.screenProps.predicted_company}</Text>
                             </View>
                             </Card.Body>

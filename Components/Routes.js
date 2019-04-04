@@ -15,6 +15,8 @@ import MastersBasedOnLocation from "./MastersPredication/MastersBasedOnLocation"
 import OutputMastersPredictionwithlocation from "./MastersPredication/OutputMastersPredictionwithlocation";
 import OutputPlacementPredictor from "./PlacementPredictor/OutputPlacementPredictor";
 
+import SplashScreen from "./SplashScreen";
+
 
 export const Navigator = createSwitchNavigator({
     Home :{
@@ -72,11 +74,15 @@ export const Navigator = createSwitchNavigator({
   OutputPlacementPredictor:{
     screen: OutputPlacementPredictor,
     path: './PlacementPredictor/OutputPlacementPredictor'
+  },
+  SplashScreen:{
+    screen: SplashScreen,
+    path: './SplashScreen'
   }
 
 },
 {
-  initialRouteName: 'Home'
+  initialRouteName: 'SplashScreen'
 }
 );
 

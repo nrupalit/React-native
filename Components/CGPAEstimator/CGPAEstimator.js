@@ -70,15 +70,6 @@ export default class CGPAEstimator extends Component {
             <Picker.Item label="7" value="7" />
         </Picker>;
     }
-
-
-    renderBackgroundImage = () => {
-        return <ImageBackground style={{ flex: 1, width: screenWidth, height: screenHeight / 3 }}
-            source={require('../Images/photo.jpg')}>
-            <Icon style={[styles.icon]} name="arrow-left" size='lg' color="grey" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 }} />
-            <Icon style={[styles.icon]} name="home" size='lg' color="grey" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 , top: -70, left: 340 }} />
-        </ImageBackground>;
-    }
     renderStudentCategory = () => {
         return <View>
             <Text style={styles.loginText}>Select student category</Text>
@@ -115,24 +106,29 @@ export default class CGPAEstimator extends Component {
     render() {
         return (
             <ScrollView style={{ backgroundColor: '#a5a7aa' }}>
-                {this.renderBackgroundImage()}
-                <Text style={{
-                            textAlign: 'center',
-                            color: 'white',
-                            fontWeight: 'bold',
-                            fontSize: 20,
-                            bottom:120,
-                        }}>CGPA Estimator</Text>
-                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <View style={styles.box}>
-                        {this.renderStudentCategory()}
-                        {this.renderSemesterSelection()}
-                        {this.renderCurrentCGPAInput()}
-                        {this.renderTargetCGPAInput()}
-                        <View style={{ padding: 10 }}></View>
-                        {this.renderCaculateButton()}
+                <ImageBackground style={{ flex: 1, width: screenWidth, height: screenHeight }}
+                source={require('../Images/image.jpg')}>
+                <Icon style={[styles.icon]} name="arrow-left" size='lg' color="white" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 }} />
+                <Icon style={[styles.icon]} name="home" size='lg' color="white" onPress={() => this.props.navigation.navigate('Home')} style={{ padding: 20 , top: -70, left: 340 }} />
+            
+                    <Text style={{
+                                textAlign: 'center',
+                                color: 'white',
+                                fontWeight: 'bold',
+                                fontSize: 20,
+                                bottom:110,
+                            }}>CGPA Estimator</Text>
+                    <View style={{ justifyContent: 'center', alignItems: 'center' , padding:30 }}>
+                        <View style={styles.box} style={{padding:20 , backgroundColor:'white' , borderRadius:5}}>
+                            {this.renderStudentCategory()}
+                            {this.renderSemesterSelection()}
+                            {this.renderCurrentCGPAInput()}
+                            {this.renderTargetCGPAInput()}
+                            <View style={{ padding: 10 }}></View>
+                            {this.renderCaculateButton()}
+                        </View>
                     </View>
-                </View>
+                </ImageBackground>
             </ScrollView>
         );
     }
@@ -161,7 +157,8 @@ const styles = StyleSheet.create({
     inputs: {
         height: 45,
         marginLeft: 16,
-        borderBottomColor: '#FFFFFF',
+        borderBottomColor: '#290345',
+        borderBottomWidth: 1,
         flex: 1,
     },
     liststyle: {

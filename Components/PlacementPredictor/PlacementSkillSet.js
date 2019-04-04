@@ -21,7 +21,7 @@ export default class PlacementSkillSet extends Component {
                                 thumbStyle={{ width: 30, height: 30 }}
                             />
                             <Card.Body>
-                                <View style={{ height: 42 }}>
+                                <View style={{ height: undefined }}>
                                     <Text style={{ marginLeft: 16 }}>{dataElement.Position}</Text>
                                 </View>
                             </Card.Body>
@@ -48,6 +48,7 @@ export default class PlacementSkillSet extends Component {
                 }}>Company according to your skill set</Text>
                 <ScrollView>
                     {this.renderCards()}
+                    <View style={{padding:20}}></View>
                 </ScrollView>
             </View>
         );

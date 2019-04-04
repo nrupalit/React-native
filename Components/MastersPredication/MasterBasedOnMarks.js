@@ -20,13 +20,13 @@ export default class MasterBasedOnMarks extends Component {
                         <Card>
                             <Card.Header
                                 title={dataElement["Institute Name"]}
-                                thumbStyle={{ width: 30, height: 30 }}
+                                thumbStyle={{ width: undefined, height: undefined }}
                             />
                             <Card.Body>
-                                <View style={{ height: 42 }}>
-                                    <Text style={{ marginLeft: 16 }}>{dataElement['Description']}</Text>
-                                    <Text style={{ marginLeft: 16 }}>Expected GATE Scrore :{dataElement['CS-CAP1']}</Text>
-                                    <Text style={{ marginLeft: 16 }}>Institute Code :{dataElement['Institute Code']}</Text>
+                                <View style={{ height: undefined }}>
+                                    <Text style={{ marginLeft: 16 , padding:5 }}>{dataElement['Description']}</Text>
+                                    <Text style={{ marginLeft: 16 , padding:5 }}>Expected GATE Scrore :{dataElement['CS-CAP1']}</Text>
+                                    <Text style={{ marginLeft: 16 , padding:5 }}>Institute Code :{dataElement['Institute Code']}</Text>
                                 </View>
                             </Card.Body>
                             <Card.Footer
@@ -52,6 +52,7 @@ export default class MasterBasedOnMarks extends Component {
                 }}>College Based On Marks</Text>
                 <ScrollView>
                     {this.renderCards()}
+                    <View style={{padding:20}}></View>
                 </ScrollView>
             </View>
         );
