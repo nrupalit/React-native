@@ -14,6 +14,7 @@ import PlacementLocationWise from "./PlacementPredictor/PlacementLocationWise";
 import MastersBasedOnLocation from "./MastersPredication/MastersBasedOnLocation";
 import OutputMastersPredictionwithlocation from "./MastersPredication/OutputMastersPredictionwithlocation";
 import OutputPlacementPredictor from "./PlacementPredictor/OutputPlacementPredictor";
+import OutputCGPAEstimator from "./CGPAEstimator/OutputCGPAEstimator";
 
 import SplashScreen from "./SplashScreen";
 
@@ -78,7 +79,12 @@ export const Navigator = createSwitchNavigator({
   SplashScreen:{
     screen: SplashScreen,
     path: './SplashScreen'
-  }
+  },
+  OutputCGPAEstimator:{
+    screen: OutputCGPAEstimator,
+    path: './CGPAEstimator/OutputCGPAEstimator'
+  },
+  
 
 },
 {
